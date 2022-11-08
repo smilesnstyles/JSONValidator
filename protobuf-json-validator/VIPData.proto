@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+//package vehicleProxy;
+//
+// Protobuf data format for interface and JSON serialization.
+// The protobuf JSON parser will be used to process the above definition format items.
+//
+
+enum ElementType {
+INTEGER = 0;
+STRING = 1;
+BOOL = 3;
+BINARY = 4;
+}
+
+enum AccessType {
+R = 0;
+W = 1;
+RW = 2;
+}
+
+enum PersistType {
+NONE = 0;
+NVM = 1;
+}
+
+enum UdsSecurity {
+DEFAULT = 0;
+EXTENDED = 1;
+PROGRAMMING = 2;
+EXTENDED_UNLOCKED = 3;
+PROGRAMMING_UNLOCKED = 4;
+}
+
+message J1939 {
+optional uint32     pgn  = 1;
+optional uint32     spn  = 2;
+optional string     name = 3;
+optional uint32     bitLength = 4;
+optional uint32     bitStart = 5;
+optional float      factor = 6;
+optional bool       isBigEndian = 7;
+optional bool       isSigned = 8;
+optional float      offset = 9;
+optional bool       secureRead = 10;
+optional bool       secureWrite = 11;
+optional string     comment0 = 12;
+}
+
+message UDS {
+optional uint32     did = 1;
+optional string     name = 2;
+optional uint32     bitLength = 3;
+optional uint32     bitStart = 4;
+optional float      factor = 5;
+optional float      offset = 6;
+optional bool       isSigned = 7;
+optional bool       isBigEndian = 8;
+optional UdsSecurity readMask = 9;
+optional UdsSecurity writeMask = 10;
+optional string     comment0 = 11;}
+
+message DBUS {
+optional string     interfaceName = 1;
+optional string     propertyName = 2;
+optional string     propertyType = 3;
+optional string     propertyAccess = 4;
+optional string     propertyUnits = 5;
+optional string     comment0 = 6;
+}
+
+message DataBaseType {
+optional int32      id = 1;
+optional string     name = 2;
+optional ElementType type = 3;
+optional uint32     value = 4;
+optional AccessType  access = 5;
+optional uint32     minLen = 6;
+optional uint32     maxLen = 7;
+optional bool       persist = 8;
+optional J1939      j1939 = 9;
+optional UDS        uds = 10;
+optional DBUS       dbus = 11;
+optional string     comment0 = 12;
+optional string     sqlID = 13;
+}
+
+message DataBase { 
+repeated DataBaseType entry = 1;
+}
