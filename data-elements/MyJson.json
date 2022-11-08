@@ -1,0 +1,9 @@
+{
+    "boolean": true,
+    "color": "go
+    "object": {
+      "a": "b",
+      "c": "d"
+    },
+    "string": "Hello World"
+}
