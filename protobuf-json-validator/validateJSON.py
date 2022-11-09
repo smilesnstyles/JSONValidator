@@ -17,7 +17,7 @@ if os.path.exists(path) :
 		if jsonstring :
 			print("JSON File Read Successfully'");
 			j1939 = jsonFormat.Parse(jsonstring,VIPData_pb2.J1939())
-			print("J1939 Comment : ",J1939.comment0);
+			print("J1939 Comment : ",j1939.comment0);
 		else :
 			print("Unable to Read JSON file to String")
 	else :
