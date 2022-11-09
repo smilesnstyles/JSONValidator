@@ -16,14 +16,14 @@ if os.path.exists(path) :
 		jsonfile.close();
 		if jsonstring :
 			print("JSON File Read Successfully'");
-				try:
-					J1939 = jsonFormat.Parse(jsonstring,VIPData_pb2.J1939())
-					print("J1939 Comment : ",J1939.comment0);
-				except jsonFormat.ParseError:
-					print("JSON Parse Error")
+			try:
+				J1939 = jsonFormat.Parse(jsonstring,VIPData_pb2.J1939())
+				print("J1939 Comment : ",J1939.comment0);
+			except jsonFormat.ParseError:
+				print("JSON Parse Error")
 		else :
 			print("Unable to Read JSON file to String")
 	else :
 		print("File Open Failed");
 else :
-    print("No File ", path," Exists");    
+	print("No File ", path," Exists");    
