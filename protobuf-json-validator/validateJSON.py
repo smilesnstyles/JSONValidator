@@ -16,8 +16,7 @@ if os.path.exists(path) :
 		jsonfile.close();
 		if jsonstring :
 			print("JSON File Read Successfully'");
-			j1939 = VIPData_pb2.J1939();
-			self.assertRaises(jsonFormat.ParseError,jsonFormat.Parse,jsonstring,j1939)
+			j1939 = jsonFormat.Parse(jsonstring,VIPData_pb2.J1939())
 			print("J1939 Comment : ",J1939.comment0);
 		else :
 			print("Unable to Read JSON file to String")
