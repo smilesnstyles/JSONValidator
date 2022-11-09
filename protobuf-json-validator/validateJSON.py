@@ -16,15 +16,11 @@ if os.path.exists(path) :
 		jsonfile.close();
 		if jsonstring :
 			print("JSON File Read Successfully'");
-			J1939 = VIPData_pb2.J1939();
-			if J1939 : 
-				print("J1939 Object Created Successfully");
 				try:
-					jsonFormat.Parse(jsonstring,J1939)
+					J1939 = jsonFormat.Parse(jsonstring,VIPData_pb2.J1939())
+					print("J1939 Comment : ",J1939.comment0);
 				except jsonFormat.ParseError:
 					print("JSON Parse Error")
-			else :
-				print("Unable to create J1939 Object");
 		else :
 			print("Unable to Read JSON file to String")
 	else :
