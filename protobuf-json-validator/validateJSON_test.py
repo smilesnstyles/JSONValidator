@@ -19,7 +19,7 @@ if os.path.exists(path) :
 			someMessage = MyProto_pb2.SomeMessage();
 			try:
 				jsonFormat.Parse(jsonstring,someMessage)
-				print(someMessage.color);
+				print("Data Fetched for color: ",someMessage.color);
 				jsonfile.close();
 			except jsonFormat.ParseError:
 				print("JSON Parse Error")
