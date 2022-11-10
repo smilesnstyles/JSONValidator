@@ -18,7 +18,7 @@ if os.path.exists(path) :
 			print("JSON File Read Successfully'");
 			vipdata = VIPData_pb2.VIPData();
 			jsonFormat.Parse(jsonstring,vipdata)
-			print("vipdata  speed max_val: ",vipdata.Stat_Engine_Speed.max_val);
+			print("vipdata  speed max_val: ",vipdata.StatEngineSpeed.max_val);
 		else :
 			print("Unable to Read JSON file to String")
 	else :
