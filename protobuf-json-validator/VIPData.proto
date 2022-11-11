@@ -1,90 +1,86 @@
 syntax = "proto3";
 
-//package vehicleProxy;
-//
-// Protobuf data format for interface and JSON serialization.
-// The protobuf JSON parser will be used to process the above definition format items.
-//
+message VIPData {
 
-enum ElementType {
-INTEGER = 0;
-STRING = 1;
-BOOL = 3;
-BINARY = 4;
-}
+    message DbusAttributes {
+		optional string interface_name = 1;
+		optional string property_name = 2;
+		optional string property_type =3;
+		optional string property_access = 4;
+		optional int32 property_update_rate_per_sec = 5;
+		optional string property_units = 6;
+	}
+	
+	message J1939Attributes {
+		optional	string PGN = 1;
+		optional	string SPN = 2;
+		optional	string comment0 = 3;
+		optional	int32 source_address = 4;
+		optional	int32 bit_length = 5;
+		optional	double factor = 6;
+		optional	bool is_big_endian = 7;
+		optional	bool is_signed = 8;
+		optional	string name = 9;
+		optional	int32 offset = 10;
+		optional	int32 start_bit = 11;
+		optional	string units = 12;
+		optional bool secure_read = 13;
+		optional bool secure_write = 14;
+	}
+	
+	message UdsAttributes {
+		optional string DID =1;
+		optional int32 bit_length = 2;
+		optional string comment0 = 3;
+		optional double factor = 4;
+		optional bool is_big_endian = 5;
+		optional bool is_signed = 6;
+		optional string name = 7;
+		optional double offset = 8;
+		optional int32 start_bit = 9;
+		optional string units = 10;
+		optional string securityReadMask = 11;
+		optional string securityWriteMask = 12;
+	}
+	
+	message Dbus {
+		DbusAttributes attributes = 1;
+	}
+	
+	message Uds {
+		optional UdsAttributes attributes = 1;
+		optional Dbus DBus = 2;
+	}
+	
+	message J1939 {
+		optional J1939Attributes attributes = 1;
+		optional Uds UDS = 2;
+		optional Dbus DBus = 3;
+	}
+	
 
-enum AccessType {
-R = 0;
-W = 1;
-RW = 2;
-}
-
-enum PersistType {
-NONE = 0;
-NVM = 1;
-}
-
-enum UdsSecurity {
-DEFAULT = 0;
-EXTENDED = 1;
-PROGRAMMING = 2;
-EXTENDED_UNLOCKED = 3;
-PROGRAMMING_UNLOCKED = 4;
-}
-
-message J1939 {
-optional uint32     pgn  = 1;
-optional uint32     spn  = 2;
-optional string     name = 3;
-optional uint32     bitLength = 4;
-optional uint32     bitStart = 5;
-optional float      factor = 6;
-optional bool       isBigEndian = 7;
-optional bool       isSigned = 8;
-optional float      offset = 9;
-optional bool       secureRead = 10;
-optional bool       secureWrite = 11;
-optional string     comment0 = 12;
-}
-
-message UDS {
-optional uint32     did = 1;
-optional string     name = 2;
-optional uint32     bitLength = 3;
-optional uint32     bitStart = 4;
-optional float      factor = 5;
-optional float      offset = 6;
-optional bool       isSigned = 7;
-optional bool       isBigEndian = 8;
-optional UdsSecurity readMask = 9;
-optional UdsSecurity writeMask = 10;
-optional string     comment0 = 11;}
-
-message DBUS {
-optional string     interfaceName = 1;
-optional string     propertyName = 2;
-optional string     propertyType = 3;
-optional string     propertyAccess = 4;
-optional string     propertyUnits = 5;
-optional string     comment0 = 6;
-}
-
-message DataBaseType {
-optional int32      id = 1;
-optional string     name = 2;
-optional ElementType type = 3;
-optional uint32     value = 4;
-optional AccessType  access = 5;
-optional uint32     minLen = 6;
-optional uint32     maxLen = 7;
-optional bool       persist = 8;
-optional J1939      j1939 = 9;
-optional UDS        uds = 10;
-optional DBUS       dbus = 11;
-optional string     comment0 = 12;
-optional string     sqlID = 13;
-}
-
-message DataBase { 
-repeated DataBaseType entry = 1;
+	message VehiclePropertyStat {
+		optional string default_value_bin=1;     
+		optional int32 default_value_int=2;
+		optional string default_value_string=3;
+		optional string  sqlID=4;
+		optional int32 key = 5;                                    
+		optional string access=6;                                  
+		optional string min_len=7;                                  
+		optional string max_len = 8;  
+		optional string min_val = 9;
+		optional string max_val = 10;
+		optional bool persist = 11;                               
+		optional int32 period_default_ms = 12;                
+		optional int32 period_update_ms= 13;
+		optional J1939 J1939 = 14;
+	}
+	
+	
+	optional VehiclePropertyStat 	STAT_ENGINE_SPEED = 1;
+	optional VehiclePropertyStat 	STAT_REAR_WHEEL_SPEED = 2;
+	optional VehiclePropertyStat 	STAT_VBATTERY = 3;
+	optional VehiclePropertyStat 	STAT_FUEL_LEVEL = 4;
+	optional VehiclePropertyStat	STAT_NVM_ODOMETER = 5;
+	optional	VehiclePropertyStat	STAT_GEAR_INDICATOR = 6;
 }
