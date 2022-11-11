@@ -5,7 +5,7 @@
 		"min_len": "1",                                  
 		"max_len": "1",                                  
 		"persist": false,                               
-		"period_default_ms": 500                      
+		"period_default_ms": 500,                     
 		"period_update_ms": 50,
 		"J1939": {                                        
 			"attributes": {                              
