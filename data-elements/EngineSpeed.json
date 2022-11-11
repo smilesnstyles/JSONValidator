@@ -1,38 +1,35 @@
 { 
-    "STAT_ENGINE_SPEED": {
-      "default-value-int": 0,
-      "access": "R",                                  
-      "min_val": "0",                                  
-      "max_val": "65535",                                  
-      "persist": "false",   
-      "period-default-ms": 20,                       
-      "period-update-ms": 20,                            
-      
-  "J1939": {                                        
-            "attributes": {                              
-                "PGN": "65382",
-                "SPN": "524000",
-                "comment0": "Polaris Engine speed",
-                "source-address": 0,
-                "bit_length": 16,
-                "factor": 1,
-                "is_big_endian": false,
-                "is_signed": false,
-                "name": "pEngine Speed>8000RPM",
-                "offset": 0,
-                "start_bit": 0,
-                "units": "rpm"
-            },
-
-
-        "DBus": {                                
-            "attributes": {                      
-                "interface-name": "net.trailtech.engine.xml",
-                "property-name": "speed",
-                "property-type": "u",
-                "property-access": "r"
-              }
-           }
-        }
-    } 
+	"STAT_ENGINE_SPEED": {
+		"default_value_int": 0,
+		"access": "R",                                  
+		"min_val": "0",                                  
+		"max_val": "65535",                                  
+		"persist": false,   
+		"period_default_ms": 20,                       
+		"period_update_ms": 20,                            
+		"J1939": {                                        
+			"attributes": {                              
+			"PGN": "65382",
+			"SPN": "524000",
+			"comment0": "Polaris Engine speed",
+			"source_address": 0,
+			"bit_length": 16,
+			"factor": 1,
+			"is_big_endian": false,
+			"is_signed": false,
+			"name": "pEngine Speed>8000RPM",
+			"offset": 0,
+			"start_bit": 0,
+			"units": "rpm"
+			},
+			"DBus": {                                
+				"attributes": {                      
+				"interface_name": "net.trailtech.engine.xml",
+				"property_name": "speed",
+				"property_type": "u",
+				"property_access": "r"
+				}
+			}
+		}
+	} 
 }
