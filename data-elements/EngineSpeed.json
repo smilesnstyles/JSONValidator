@@ -6,7 +6,7 @@
 		"max_val": "65535",                                  
 		"persist": false,   
 		"period_default_ms": 20,                       
-		"period_update_ms": 20                            
+		"period_update_ms": 20,                             
 		"J1939": {                                        
 			"attributes": {                              
 			"PGN": "65382",
