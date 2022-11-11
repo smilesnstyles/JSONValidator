@@ -1,0 +1,37 @@
+{ 
+	"STAT_NVM_ODOMETER": {
+		"default_value_int": 0,
+		"access": "R",                                  
+		"min_len": "1",                                  
+		"max_len": "2",                                  
+		"persist": false, 
+		"period_default_ms": 100,                       
+		"period_update_ms": 100,                              
+
+		"J1939": {                                        
+			"attributes": {                              
+				"PGN": "65265",
+				"SPN": "523994",
+				"comment0": "pOdometer Drive Bit",
+				"source_address": 0,
+				"bit_length": 2,
+				"factor": 1,
+				"is_big_endian": false,
+				"is_signed": false,
+				"name": "distance",
+				"offset": 0,
+				"start_bit": 6,
+				"units": "state"
+			},
+
+			"DBus": {                                
+				"attributes": {                      
+				"interface_name": "net.trailtech.odometer.xml",
+				"property_name": "distance",
+				"property_type": "u",
+				"property_access": "r"
+				}
+			}
+		}
+	} 
+}

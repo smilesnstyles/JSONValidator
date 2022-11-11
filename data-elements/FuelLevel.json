@@ -1,0 +1,36 @@
+{ 
+	"STAT_FUEL_LEVEL": {
+		"default_value_int": 0,
+		"access": "R",                                  
+		"min_len": "1",                                  
+		"max_len": "1",                                  
+		"persist": false,                               
+		"period_default_ms": 500,                       
+		"period_update_ms": 50,
+		"J1939": {                                        
+			"attributes": {                              
+				"PGN": "65276",
+				"SPN": "96",
+				"comment0": "Fuel level percentage",
+				"source_address": 0,
+				"bit_length": 8,
+				"factor": 1,
+				"is_big_endian": false,
+				"is_signed": false,
+				"name": "FuelLevel1",
+				"offset": 0,
+				"start_bit": 8,
+				"units": "percent"
+			},
+
+			"DBus": {                                
+				"attributes": {                      
+				"interface_name": "net.trailtech.vehicle1.fuel",
+				"property_name": "percentage",
+				"property_type": "u",
+				"property_access": "r"
+				}
+			}
+		}
+	} 
+}

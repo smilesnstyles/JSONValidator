@@ -1,0 +1,38 @@
+{ 
+	"STAT_GEAR_INDICATOR": {
+		"default_value_int": 0,
+		"access": "R",                                  
+		"min_val": "_125",                                  
+		"max_val": "130",                                  
+		"persist": false, 
+		"period_default_ms": 100,                       
+		"period_update_ms": 100,                              
+
+		"J1939": {                                        
+			"attributes": {                              
+				"PGN": "61445",
+				"SPN": "523",
+				"comment0": "Transmission Gear",
+				"source_address": 0,
+				"bit_length": 16,
+				"factor": 1,
+				"is_big_endian": false,
+				"is_signed": false,
+				"name": "Transmission Current Gear",
+				"offset": 0,
+				"start_bit": 24,
+				"units": "gear_value"
+			},
+
+
+			"DBus": {                                
+				"attributes": {                      
+					"interface_name": "net.trailtech.powertrain.xml",
+					"property_name": "gear",
+					"property_type": "u",
+					"property_access": "r"
+				}
+			}
+		}
+	} 
+}

@@ -1,0 +1,37 @@
+{ 
+	"STAT_VBATTERY": {
+		"default_value_int": 0,
+		"access": "R",                                  
+		"min_val": "0",                                  
+		"max_val": "3",                                  
+		"persist": false,   
+		"period_default_ms": 100,                       
+		"period_update_ms": 100,                            
+
+		"J1939": {                                        
+			"attributes": {                              
+			"PGN": "65521",
+			"SPN": "517449",
+			"comment0": " BatteryStatus, indicates the ECM considers battery capacity sufficient to complete a reflash cycle.",
+			"source_address": 0,
+			"bit_length": 2,
+			"factor": 1,
+			"is_big_endian": false,
+			"is_signed": false,
+			"name": "bBatt",
+			"offset": 0,
+			"start_bit": 2,
+			"units": "bit"
+			},
+
+			"DBus": {                                
+				"attributes": {                      
+				"interface_name": "net.trailtech.power.xml",
+				"property_name": "battery",
+				"property_type": "u",
+				"property_access": "r"
+				}
+			}
+		}
+	} 
+}

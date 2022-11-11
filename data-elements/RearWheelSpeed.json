@@ -1,0 +1,62 @@
+{
+	"STAT_REAR_WHEEL_SPEED": {
+		"default_value_bin": "\\x00\\x00\\x00\\x00",     
+		"default_value_int": 22,
+		"default_value_string": "zero",
+		"sqlID": "ImASQLID",
+		"key": 20111,                                    
+		"access": "RW",                                  
+		"min_len": "4",                                  
+		"max_len": "4",                                  
+		"persist": true,                               
+		"period_default_ms": 500,                       
+		"period_update_ms": 50,                         
+
+		"J1939": {                                          
+			"attributes": {                                 
+			"PGN": "3621",
+			"SPN": "516434",
+			"comment0": "May have seperate sources based on platform, 11 _ TCU in this case",
+			"source_address": 11,
+			"bit_length": 32,
+			"factor": 0.00390625,
+			"is_big_endian": false,
+			"is_signed": false,
+			"name": "rearWheelSpeed",
+			"offset": 0.0,
+			"start_bit": 4,
+			"units": "km/256hr",
+			"secure_read": false,
+			"secure_write": true
+			},
+
+			"UDS": {                                        
+				"attributes": {
+				"DID": "FE34",
+				"bit_length": 32,
+				"comment0": "rearWheelSpeed",
+				"factor": 1.0,
+				"is_big_endian": false,
+				"is_signed": false,
+				"name": "pLaunchControlActiveIndicator",
+				"offset": 0.0,
+				"start_bit": 4,
+				"units": "m/s",
+				"securityReadMask": "D|E|P|EU|PU",
+				"securityWriteMask": "D|E|P|EU|PU"
+				},
+
+				"DBus": {                                   
+					"attributes": {                         
+					"interface_name": "net.trailtech.vehicle1.pose",
+					"property_name": "rearWheelSpeed",
+					"property_type": "u",
+					"property_update_rate_per_sec": 20,   
+					"property_access": "r",
+					"property_units": "Info Only: m/h or whatever units are provided"
+					}
+				}
+			}
+		}
+	}
+}
