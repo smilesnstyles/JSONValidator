@@ -10,7 +10,7 @@
 		"J1939": {                  
 			"attributes": {                              
 			"PGN": "65268",
-			"SPN": "241",
+			"SPN": "241", 
 			"comment0": "Pressure at which air is contained in cavity formed by tire and rim.",
 			"source_address": 1,
 			"bit_length": 8,
