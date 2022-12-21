@@ -1,0 +1,35 @@
+{ 
+	"STAT_TIRE_PRESSURE_LF": {
+		"default_value_uint16": 0,
+		"access": "R",                              
+		"min_val": "0",                            
+		"max_val": "1024",                      
+		"persist": true,
+		"period_default_ms": 10000,
+		"period_update_ms": 10000,
+		"J1939": {                  
+			"attributes": {                              
+			"PGN": "65268",
+			"SPN": "241",
+			"comment0": "Pressure at which air is contained in cavity formed by tire and rim.",
+			"source_address": 1,
+			"bit_length": 8,
+			"factor": 4,
+			"is_big_endian": false,
+			"is_signed": false,
+			"name": "Tire Pressure",
+			"offset": 0,
+			"start_bit": 8,
+			"units": "kPa"
+			},
+			"DBus": { 
+				"attributes": {                      
+				"interface_name": "net.trailtech.vehicle1.tire",
+				"property_name": "pressureLF",
+				"property_type": "u",
+				"property_access": "r"
+				}
+			}
+		}
+	} 
+}
