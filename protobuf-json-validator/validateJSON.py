@@ -20,12 +20,7 @@ if argc >= 2 :
                 VIPData = VIPData_pb2.VIPData()
                 jsonFormat.Parse(jsonstring,VIPData)
                 if VIPData :
-                    print("Engien Speed PGN ", VIPData.STAT_ENGINE_SPEED.J1939.attributes.PGN);
-                    print("Rear Wheel Speed PGN ", VIPData.STAT_REAR_WHEEL_SPEED.J1939.attributes.PGN);
-                    print("Battery PGN ", VIPData.STAT_VBATTERY.J1939.attributes.PGN);
-                    print("Fule Level PGN ", VIPData.STAT_FUEL_LEVEL.J1939.attributes.PGN);
-                    print("Odometer PGN ", VIPData.STAT_NVM_ODOMETER.J1939.attributes.PGN);
-                    print("Gear Indicator PGN ", VIPData.STAT_GEAR_INDICATOR.J1939.attributes.PGN);
+                    print("\n       ", jsonfile, " Validated successfully");
                 else :
                     print("JSON Parse Error")
                 jsonfile.close();
